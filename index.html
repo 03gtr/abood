@@ -2,315 +2,292 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="description" content="عبدالله الحنكاوي — الملف الشخصي الرقمي" />
+  <meta name="theme-color" content="#f5f5f7" />
   <title>عبدالله الحنكاوي — Digital Profile</title>
   <style>
     :root {
-      --color-apple-blue: #0071e3;
-      --color-link-blue: #0066cc;
-      --color-signal-blue: #2997ff;
-      --color-carbon: #1d1d1f;
-      --color-frost: #f5f5f7;
-      --color-ice: #f4f8fb;
-      --color-smoke: #333333;
-      --color-graphite: #474747;
-      --color-ash: #707070;
-      --color-mist: #858585;
-      --color-onyx: #000000;
-      --color-pebble: #e2e2e5;
-      --font-sf-pro-display: 'SF Pro Display', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      --font-sf-pro-text: 'SF Pro Text', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      --text-caption: 12px;
-      --text-body-sm: 14px;
-      --text-body: 17px;
-      --text-subheading: 21px;
-      --text-heading-sm: 28px;
-      --text-heading: 40px;
-      --text-heading-lg: 44px;
-      --text-display: 56px;
-      --font-weight-light: 300;
-      --font-weight-regular: 400;
-      --font-weight-semibold: 600;
-      --spacing-4: 4px;
-      --spacing-8: 8px;
-      --spacing-12: 12px;
-      --spacing-16: 16px;
-      --spacing-20: 20px;
-      --spacing-24: 24px;
-      --spacing-40: 40px;
-      --spacing-48: 48px;
-      --radius-lg: 8px;
-      --radius-full: 980px;
+      --c-blue: #0071e3;
+      --c-blue-hover: #0077ed;
+      --c-link: #0066cc;
+      --c-carbon: #1d1d1f;
+      --c-ash: #707070;
+      --c-pebble: #e2e2e5;
+      --c-frost: #f5f5f7;
+      --c-ice: #f4f8fb;
+      --c-mist: #858585;
+
+      /* Brand colors */
+      --ig-pink: #E1306C;
+      --ig-purple: #833AB4;
+      --ig-orange: #F77737;
+      --tt-black: #010101;
+      --tt-cyan: #69C9D0;
+      --tt-pink: #EE1D52;
+      --sc-yellow: #FFFC00;
+      --sc-black: #000000;
+      --fb-blue: #1877F2;
+
+      --font: 'SF Pro Text', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-d: 'SF Pro Display', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --r-full: 980px;
+      --r-card: 12px;
+      --r-icon: 10px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
 
     body {
-      font-family: var(--font-sf-pro-text);
-      font-size: var(--text-body);
+      font-family: var(--font);
+      font-size: 17px;
       line-height: 1.47;
       letter-spacing: -0.016em;
-      color: var(--color-carbon);
-      background: #ffffff;
-      -webkit-font-smoothing: antialiased;
+      color: var(--c-carbon);
+      background: linear-gradient(180deg, #f8f9fb 0%, #f0f2f5 50%, #fafbfc 100%);
       min-height: 100vh;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* ── Animations ── */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes scaleIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+    /* ── Keyframes ── */
+    @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    @keyframes scaleIn { from { opacity:0; transform:scale(0.9); } to { opacity:1; transform:scale(1); } }
+    @keyframes pop { 0% { transform:scale(1); } 50% { transform:scale(1.12); } 100% { transform:scale(1); } }
+    @keyframes slideInRight { from { opacity:0; transform:translateX(20px); } to { opacity:1; transform:translateX(0); } }
+    @keyframes shimmer { 0% { background-position:-200% 0; } 100% { background-position:200% 0; } }
+    @keyframes pulse { 0%,100% { opacity:0.6; } 50% { opacity:1; } }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    .animate { animation-fill-mode: both; }
-    .animate--fade-up { animation-name: fadeInUp; }
-    .animate--fade { animation-name: fadeIn; }
-    .animate--scale { animation-name: scaleIn; }
-    .duration--400 { animation-duration: 0.4s; }
-    .duration--600 { animation-duration: 0.6s; }
-    .duration--800 { animation-duration: 0.8s; }
-    .delay--100 { animation-delay: 0.1s; }
-    .delay--200 { animation-delay: 0.2s; }
-    .delay--300 { animation-delay: 0.3s; }
-    .delay--400 { animation-delay: 0.4s; }
-    .ease--out { animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
+    .anim { animation-fill-mode: both; }
+    .anim-fu { animation-name: fadeUp; }
+    .anim-fi { animation-name: fadeIn; }
+    .anim-si { animation-name: scaleIn; }
+    .anim-sr { animation-name: slideInRight; }
+    .d-300 { animation-duration: 0.35s; }
+    .d-400 { animation-duration: 0.45s; }
+    .d-500 { animation-duration: 0.55s; }
+    .d-600 { animation-duration: 0.7s; }
+    .delay-1 { animation-delay: 0.08s; }
+    .delay-2 { animation-delay: 0.16s; }
+    .delay-3 { animation-delay: 0.24s; }
+    .delay-4 { animation-delay: 0.32s; }
+    .delay-5 { animation-delay: 0.40s; }
+    .delay-6 { animation-delay: 0.48s; }
+    .ease { animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
 
-    /* ── Sticky Top Bar ── */
+    /* ── Top Bar ── */
     .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid var(--color-pebble);
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: saturate(180%) blur(24px);
+      -webkit-backdrop-filter: saturate(180%) blur(24px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
     }
     .topbar__inner {
-      max-width: 980px;
-      margin: 0 auto;
+      max-width: 980px; margin: 0 auto;
       padding: 10px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      display: flex; align-items: center; justify-content: space-between;
     }
-    .topbar__name {
-      font-size: var(--text-body-sm);
-      font-weight: var(--font-weight-semibold);
-      color: var(--color-carbon);
-    }
+    .topbar__name { font-size: 14px; font-weight: 600; color: var(--c-carbon); }
     .topbar__label {
-      font-size: var(--text-caption);
-      color: var(--color-ash);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      font-size: 11px; color: var(--c-ash);
+      letter-spacing: 0.06em; text-transform: uppercase;
+      font-weight: 500;
     }
 
-    /* ── Main Content ── */
-    main {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+    /* ── Main ── */
+    main { max-width: 980px; margin: 0 auto; padding: 0 24px; }
 
-    /* ── Hero Section ── */
+    /* ── Hero ── */
     .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 72px 24px 56px;
-      text-align: center;
+      display: flex; flex-direction: column; align-items: center;
+      padding: 64px 24px 48px; text-align: center;
     }
     .hero__eyebrow {
-      font-size: var(--text-caption);
-      color: var(--color-ash);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-size: 11px; color: var(--c-ash);
+      letter-spacing: 0.1em; text-transform: uppercase;
+      font-weight: 500; margin-bottom: 16px;
+    }
+    .hero__avatar-ring {
+      width: 132px; height: 132px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #f5576c, #fda085);
+      background-size: 300% 300%;
+      animation: gradientShift 6s ease infinite;
       margin-bottom: 20px;
     }
     .hero__avatar {
-      width: 128px;
-      height: 128px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin-bottom: 24px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      background: var(--color-pebble);
+      width: 126px; height: 126px;
+      border-radius: 50%; overflow: hidden;
+      background: #fff;
     }
     .hero__avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+      width: 100%; height: 100%; object-fit: cover; display: block;
     }
     .hero__name {
-      font-family: var(--font-sf-pro-display);
-      font-size: clamp(36px, 6vw, 52px);
-      font-weight: var(--font-weight-semibold);
-      line-height: 1.07;
-      letter-spacing: 0.011em;
-      color: var(--color-carbon);
-      margin-bottom: 8px;
+      font-family: var(--font-d);
+      font-size: clamp(32px, 7vw, 52px);
+      font-weight: 600; line-height: 1.07;
+      letter-spacing: 0.01em; color: var(--c-carbon);
+      margin-bottom: 6px;
     }
     .hero__descriptor {
-      font-size: var(--text-subheading);
-      font-weight: var(--font-weight-light);
-      color: var(--color-ash);
-      margin-bottom: 28px;
+      font-size: 20px; font-weight: 300; color: var(--c-ash);
+      margin-bottom: 24px;
     }
+
+    /* ── WhatsApp CTA ── */
     .hero__cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--color-apple-blue);
-      color: #ffffff;
-      font-size: var(--text-body);
-      font-weight: var(--font-weight-regular);
-      padding: 12px 28px;
-      border-radius: var(--radius-full);
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
-      box-shadow: 0 2px 8px rgba(0, 113, 227, 0.25);
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff; font-size: 17px; font-weight: 500;
+      padding: 12px 28px; border-radius: var(--r-full);
+      border: none; cursor: pointer; text-decoration: none;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .hero__cta:hover {
-      background: #0077ed;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
-    }
-    .hero__cta:active {
-      background: #006edb;
-      transform: translateY(0);
-    }
-    .hero__cta svg { width: 20px; height: 20px; }
+    .hero__cta:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(37,211,102,0.4); }
+    .hero__cta:active { transform: translateY(0) scale(0.97); }
+    .hero__cta svg { width: 22px; height: 22px; }
 
-    /* ── Divider ── */
-    .divider {
-      border: none;
-      border-top: 1px solid var(--color-pebble);
-      margin: 0;
-    }
-
-    /* ── Social Links Section ── */
-    .social {
-      padding: 40px 0;
-    }
+    /* ── Social ── */
+    .social { padding: 32px 0; }
     .social__heading {
-      font-size: var(--text-body-sm);
-      font-weight: var(--font-weight-semibold);
-      color: var(--color-ash);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-      text-align: center;
+      font-size: 13px; font-weight: 600; color: var(--c-ash);
+      letter-spacing: 0.06em; text-transform: uppercase;
+      margin-bottom: 12px; text-align: center;
     }
-    .social__list {
-      display: flex;
-      flex-direction: column;
-    }
-    .social__item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--color-pebble);
-      text-decoration: none;
-      color: var(--color-carbon);
-      transition: background 0.15s ease;
-      border-radius: var(--radius-lg);
-    }
-    .social__item:last-child { border-bottom: none; }
-    .social__item:hover { background: var(--color-ice); }
-    .social__info {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .social__icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 8px;
-      background: var(--color-frost);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .social__icon svg { width: 18px; height: 18px; color: var(--color-graphite); }
-    .social__text {
-      display: flex;
-      flex-direction: column;
-    }
-    .social__name {
-      font-size: var(--text-body);
-      font-weight: var(--font-weight-regular);
-    }
-    .social__handle {
-      font-size: var(--text-body-sm);
-      color: var(--color-ash);
-    }
-    .social__arrow {
-      color: var(--color-mist);
-      font-size: 16px;
-      transition: transform 0.15s ease;
-    }
-    .social__item:hover .social__arrow { transform: translateX(-2px); }
+    .social__list { display: flex; flex-direction: column; gap: 0; }
 
-    /* ── Save Contact Section ── */
-    .save {
-      padding: 40px 0 56px;
-      display: flex;
-      justify-content: center;
-    }
-    .save__btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      color: var(--color-link-blue);
-      font-size: var(--text-body);
-      font-weight: var(--font-weight-regular);
-      padding: 12px 28px;
-      border-radius: var(--radius-full);
-      border: 1px solid var(--color-link-blue);
+    /* ── Social Item ── */
+    .social__item {
+      display: flex; align-items: center;
+      padding: 14px 16px;
+      border-radius: var(--r-card);
+      text-decoration: none; color: var(--c-carbon);
+      transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
+      position: relative; overflow: hidden;
+      margin-bottom: 4px;
+      min-height: 64px;
       cursor: pointer;
-      text-decoration: none;
-      transition: background 0.15s ease, color 0.15s ease;
     }
-    .save__btn:hover {
-      background: var(--color-link-blue);
-      color: #ffffff;
+    .social__item::before {
+      content: ''; position: absolute; inset: 0;
+      border-radius: var(--r-card); opacity: 0;
+      transition: opacity 0.2s ease;
     }
+    .social__item:active { transform: scale(0.97); }
+
+    /* Instagram */
+    .social__item--ig { background: linear-gradient(135deg, rgba(131,58,180,0.06), rgba(225,48,108,0.06), rgba(247,119,55,0.06)); border: 1px solid rgba(131,58,180,0.12); }
+    .social__item--ig:active { background: linear-gradient(135deg, rgba(131,58,180,0.12), rgba(225,48,108,0.12), rgba(247,119,55,0.12)); }
+
+    /* TikTok */
+    .social__item--tt { background: rgba(1,1,1,0.04); border: 1px solid rgba(1,1,1,0.08); }
+    .social__item--tt:active { background: rgba(1,1,1,0.08); }
+
+    /* Snapchat */
+    .social__item--sc { background: rgba(255,252,0,0.06); border: 1px solid rgba(255,252,0,0.2); }
+    .social__item--sc:active { background: rgba(255,252,0,0.12); }
+
+    /* Facebook */
+    .social__item--fb { background: rgba(24,119,242,0.05); border: 1px solid rgba(24,119,242,0.12); }
+    .social__item--fb:active { background: rgba(24,119,242,0.1); }
+
+    /* Icon containers */
+    .social__icon {
+      width: 44px; height: 44px;
+      border-radius: var(--r-icon);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative; z-index: 1;
+    }
+    .social__item:active .social__icon { transform: scale(0.9); }
+
+    /* Instagram icon */
+    .social__item--ig .social__icon { background: linear-gradient(135deg, #833AB4, #E1306C, #F77737); }
+    .social__item--ig .social__icon svg { color: #fff; }
+
+    /* TikTok icon */
+    .social__item--tt .social__icon { background: #010101; }
+    .social__item--tt .social__icon svg { color: #fff; }
+
+    /* Snapchat icon */
+    .social__item--sc .social__icon { background: #FFFC00; }
+    .social__item--sc .social__icon svg { color: #000; }
+
+    /* Facebook icon */
+    .social__item--fb .social__icon { background: #1877F2; }
+    .social__item--fb .social__icon svg { color: #fff; }
+
+    .social__icon svg { width: 20px; height: 20px; }
+
+    .social__text {
+      display: flex; flex-direction: column;
+      flex: 1; margin-right: 14px; position: relative; z-index: 1;
+    }
+    .social__name { font-size: 16px; font-weight: 600; color: var(--c-carbon); }
+    .social__handle { font-size: 13px; color: var(--c-ash); }
+
+    .social__arrow {
+      color: var(--c-mist); font-size: 18px;
+      transition: transform 0.2s ease, color 0.2s ease;
+      position: relative; z-index: 1;
+    }
+    .social__item:active .social__arrow { transform: translateX(-4px); color: var(--c-carbon); }
+
+    /* Ripple effect */
+    .ripple {
+      position: absolute; border-radius: 50%;
+      background: rgba(0,0,0,0.08);
+      transform: scale(0); animation: ripple-effect 0.5s ease-out forwards;
+      pointer-events: none; z-index: 2;
+    }
+    @keyframes ripple-effect {
+      to { transform: scale(4); opacity: 0; }
+    }
+
+    /* ── Save Contact ── */
+    .save { padding: 24px 0 48px; display: flex; justify-content: center; }
+    .save__btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--c-link);
+      font-size: 17px; font-weight: 500;
+      padding: 12px 28px; border-radius: var(--r-full);
+      border: 1.5px solid var(--c-link);
+      cursor: pointer; text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .save__btn:hover { background: var(--c-link); color: #fff; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,102,204,0.25); }
+    .save__btn:active { transform: scale(0.97); }
     .save__btn svg { width: 18px; height: 18px; }
 
     /* ── Footer ── */
     .footer {
-      padding: 24px 24px 40px;
-      text-align: center;
-      border-top: 1px solid var(--color-pebble);
+      padding: 20px 24px 36px; text-align: center;
+      border-top: 1px solid var(--c-pebble);
     }
-    .footer__text {
-      font-size: var(--text-caption);
-      color: var(--color-ash);
-    }
+    .footer__text { font-size: 11px; color: var(--c-ash); }
 
-    /* ── Responsive ── */
+    /* ── Mobile ── */
     @media (max-width: 640px) {
-      .hero { padding: 48px 16px 40px; }
-      .hero__avatar { width: 104px; height: 104px; }
+      .hero { padding: 44px 16px 36px; }
+      .hero__avatar-ring { width: 112px; height: 112px; }
+      .hero__avatar { width: 106px; height: 106px; }
+      .hero__descriptor { font-size: 18px; }
       main { padding: 0 16px; }
       .topbar__inner { padding: 10px 16px; }
+      .social__item { padding: 12px 14px; min-height: 58px; }
+      .social__icon { width: 40px; height: 40px; }
+      .hero__cta { padding: 14px 32px; font-size: 18px; }
     }
 
     /* ── Reduced Motion ── */
@@ -325,7 +302,7 @@
 </head>
 <body>
 
-  <!-- Sticky Top Bar -->
+  <!-- Top Bar -->
   <header class="topbar" role="banner">
     <div class="topbar__inner">
       <span class="topbar__name">عبدالله الحنكاوي</span>
@@ -337,85 +314,65 @@
 
     <!-- Hero -->
     <section class="hero" aria-labelledby="hero-name">
-      <p class="hero__eyebrow animate animate--fade duration--400 ease--out">Digital Profile</p>
-      <div class="hero__avatar animate animate--scale duration--600 ease--out delay--100">
-        <img src="photo.jpg" alt="عبدالله الحنكاوي" width="128" height="128" loading="eager" />
+      <p class="hero__eyebrow anim anim-fi d-300 ease">Digital Profile</p>
+      <div class="hero__avatar-ring anim anim-si d-400 ease delay-1">
+        <div class="hero__avatar">
+          <img src="photo.jpg" alt="عبدالله الحنكاوي" width="126" height="126" loading="eager" />
+        </div>
       </div>
-      <h1 class="hero__name animate animate--fade-up duration--600 ease--out delay--200" id="hero-name">عبدالله الحنكاوي</h1>
-      <p class="hero__descriptor animate animate--fade-up duration--600 ease--out delay--300">تواصل مباشر وسريع</p>
-      <a class="hero__cta animate animate--fade-up duration--600 ease--out delay--400" href="https://wa.me/9647708865247" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-        </svg>
+      <h1 class="hero__name anim anim-fu d-500 ease delay-2" id="hero-name">عبدالله الحنكاوي</h1>
+      <p class="hero__descriptor anim anim-fu d-500 ease delay-3">تواصل مباشر وسريع</p>
+      <a class="hero__cta anim anim-fu d-500 ease delay-4" href="https://wa.me/9647708865247" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         تواصل واتساب
       </a>
     </section>
 
-    <hr class="divider" />
-
     <!-- Social Links -->
     <section class="social" aria-labelledby="social-heading">
-      <h2 class="social__heading animate animate--fade duration--400 ease--out" id="social-heading">روابط التواصل</h2>
+      <h2 class="social__heading anim anim-fi d-300 ease delay-3" id="social-heading">روابط التواصل</h2>
       <nav class="social__list" aria-label="روابط التواصل الاجتماعي">
 
-        <a class="social__item animate animate--fade-up duration--400 ease--out delay--100" href="https://www.instagram.com/28.gtr" target="_blank" rel="noopener">
-          <div class="social__info">
-            <div class="social__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5"/>
-                <circle cx="12" cy="12" r="5"/>
-                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
-              </svg>
-            </div>
-            <div class="social__text">
-              <span class="social__name">Instagram</span>
-              <span class="social__handle">28.gtr</span>
-            </div>
+        <a class="social__item social__item--ig anim anim-fu d-400 ease delay-3" href="https://www.instagram.com/28.gtr" target="_blank" rel="noopener">
+          <div class="social__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <div class="social__text">
+            <span class="social__name">Instagram</span>
+            <span class="social__handle">@28.gtr</span>
           </div>
           <span class="social__arrow" aria-hidden="true">→</span>
         </a>
 
-        <a class="social__item animate animate--fade-up duration--400 ease--out delay--200" href="https://www.tiktok.com/@ky.ha.2" target="_blank" rel="noopener">
-          <div class="social__info">
-            <div class="social__icon">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.75a8.18 8.18 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.18z"/>
-              </svg>
-            </div>
-            <div class="social__text">
-              <span class="social__name">TikTok</span>
-              <span class="social__handle">ky.ha.2</span>
-            </div>
+        <a class="social__item social__item--tt anim anim-fu d-400 ease delay-4" href="https://www.tiktok.com/@ky.ha.2" target="_blank" rel="noopener">
+          <div class="social__icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.75a8.18 8.18 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.18z"/></svg>
+          </div>
+          <div class="social__text">
+            <span class="social__name">TikTok</span>
+            <span class="social__handle">@ky.ha.2</span>
           </div>
           <span class="social__arrow" aria-hidden="true">→</span>
         </a>
 
-        <a class="social__item animate animate--fade-up duration--400 ease--out delay--300" href="https://www.snapchat.com/add/gtr.288" target="_blank" rel="noopener">
-          <div class="social__info">
-            <div class="social__icon">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12.206.793c.99 0 4.347.276 5.93 3.821.529 1.193.403 3.219.299 4.847l-.003.06c-.012.18-.022.345-.03.51.075.045.203.09.401.09.3-.016.659-.12.959-.289.105-.06.21-.09.3-.09.12 0 .209.045.284.12.164.135.224.33.164.54-.09.315-.494.555-.824.66-.135.045-.24.075-.33.105-.36.12-.615.24-.615.51 0 .27.315.495.615.66.135.075.24.135.33.195.36.24.585.54.585.93 0 .39-.315.72-.765.87-.195.06-.39.09-.555.09-.165 0-.345-.03-.51-.09-.345-.12-.615-.345-.87-.57-.15-.135-.3-.255-.45-.345-.24-.165-.495-.255-.78-.255-.3 0-.555.09-.78.255-.15.09-.3.21-.45.345-.255.225-.525.45-.87.57-.165.06-.345.09-.51.09-.165 0-.36-.03-.555-.09-.45-.15-.765-.48-.765-.87 0-.39.225-.69.585-.93.09-.06.195-.12.33-.195.3-.165.615-.39.615-.66 0-.27-.255-.39-.615-.51-.09-.03-.195-.06-.33-.105-.33-.105-.735-.345-.825-.66-.06-.21 0-.405.165-.54.075-.075.164-.12.284-.12.09 0 .195.03.3.09.3.169.659.273.959.289.198 0 .326-.045.401-.09-.008-.165-.018-.33-.03-.51l-.003-.06c-.104-1.628-.229-3.654.299-4.847C7.86 1.069 11.216.793 12.206.793z"/>
-              </svg>
-            </div>
-            <div class="social__text">
-              <span class="social__name">Snapchat</span>
-              <span class="social__handle">gtr.288</span>
-            </div>
+        <a class="social__item social__item--sc anim anim-fu d-400 ease delay-5" href="https://www.snapchat.com/add/gtr.288" target="_blank" rel="noopener">
+          <div class="social__icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.206.793c.99 0 4.347.276 5.93 3.821.529 1.193.403 3.219.299 4.847l-.003.06c-.012.18-.022.345-.03.51.075.045.203.09.401.09.3-.016.659-.12.959-.289.105-.06.21-.09.3-.09.12 0 .209.045.284.12.164.135.224.33.164.54-.09.315-.494.555-.824.66-.135.045-.24.075-.33.105-.36.12-.615.24-.615.51 0 .27.315.495.615.66.135.075.24.135.33.195.36.24.585.54.585.93 0 .39-.315.72-.765.87-.195.06-.39.09-.555.09-.165 0-.345-.03-.51-.09-.345-.12-.615-.345-.87-.57-.15-.135-.3-.255-.45-.345-.24-.165-.495-.255-.78-.255-.3 0-.555.09-.78.255-.15.09-.3.21-.45.345-.255.225-.525.45-.87.57-.165.06-.345.09-.51.09-.165 0-.36-.03-.555-.09-.45-.15-.765-.48-.765-.87 0-.39.225-.69.585-.93.09-.06.195-.12.33-.195.3-.165.615-.39.615-.66 0-.27-.255-.39-.615-.51-.09-.03-.195-.06-.33-.105-.33-.105-.735-.345-.825-.66-.06-.21 0-.405.165-.54.075-.075.164-.12.284-.12.09 0 .195.03.3.09.3.169.659.273.959.289.198 0 .326-.045.401-.09-.008-.165-.018-.33-.03-.51l-.003-.06c-.104-1.628-.229-3.654.299-4.847C7.86 1.069 11.216.793 12.206.793z"/></svg>
+          </div>
+          <div class="social__text">
+            <span class="social__name">Snapchat</span>
+            <span class="social__handle">gtr.288</span>
           </div>
           <span class="social__arrow" aria-hidden="true">→</span>
         </a>
 
-        <a class="social__item animate animate--fade-up duration--400 ease--out delay--400" href="https://www.facebook.com/share/18SiGY9y9p/" target="_blank" rel="noopener">
-          <div class="social__info">
-            <div class="social__icon">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-              </svg>
-            </div>
-            <div class="social__text">
-              <span class="social__name">Facebook</span>
-              <span class="social__handle">Abdullah</span>
-            </div>
+        <a class="social__item social__item--fb anim anim-fu d-400 ease delay-6" href="https://www.facebook.com/share/18SiGY9y9p/" target="_blank" rel="noopener">
+          <div class="social__icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </div>
+          <div class="social__text">
+            <span class="social__name">Facebook</span>
+            <span class="social__handle">Abdullah</span>
           </div>
           <span class="social__arrow" aria-hidden="true">→</span>
         </a>
@@ -423,52 +380,55 @@
       </nav>
     </section>
 
-    <hr class="divider" />
-
     <!-- Save Contact -->
-    <section class="save animate animate--fade-up duration--600 ease--out delay--400" aria-label="حفظ جهة الاتصال">
+    <section class="save anim anim-fu d-500 ease delay-6" aria-label="حفظ جهة الاتصال">
       <button class="save__btn" id="saveContact" type="button">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="18" height="18" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-          <circle cx="8.5" cy="7" r="4"/>
-          <line x1="20" y1="8" x2="20" y2="14"/>
-          <line x1="23" y1="11" x2="17" y2="11"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="18" height="18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
         ＋ إضافة إلى جهات الاتصال
       </button>
     </section>
 
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
     <p class="footer__text">© 2026 عبدالله الحنكاوي</p>
   </footer>
 
   <script>
-    // vCard generation and download
+    // vCard download
     (function() {
       const vcard = [
-        'BEGIN:VCARD',
-        'VERSION:3.0',
-        'FN:عبدالله الحنكاوي',
-        'N:الحنكاوي;عبدالله;;;',
+        'BEGIN:VCARD','VERSION:3.0',
+        'FN:عبدالله الحنكاوي','N:الحنكاوي;عبدالله;;;',
         'TEL;TYPE=CELL,VOICE:+9647708865247',
         'URL:https://wa.me/9647708865247',
         'END:VCARD'
       ].join('\r\n');
-
       const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
       const url = URL.createObjectURL(blob);
-
       document.getElementById('saveContact').addEventListener('click', function() {
         const a = document.createElement('a');
-        a.href = url;
-        a.download = 'abdullah-al-hankawi.vcf';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
+        a.href = url; a.download = 'abdullah-al-hankawi.vcf';
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
         URL.revokeObjectURL(url);
+      });
+    })();
+
+    // Touch ripple effect on social items
+    (function() {
+      const items = document.querySelectorAll('.social__item');
+      items.forEach(function(item) {
+        item.addEventListener('click', function(e) {
+          const rect = item.getBoundingClientRect();
+          const ripple = document.createElement('span');
+          ripple.className = 'ripple';
+          const size = Math.max(rect.width, rect.height);
+          ripple.style.width = ripple.style.height = size + 'px';
+          ripple.style.left = (e.clientX - rect.left - size/2) + 'px';
+          ripple.style.top = (e.clientY - rect.top - size/2) + 'px';
+          item.appendChild(ripple);
+          setTimeout(function() { ripple.remove(); }, 500);
+        });
       });
     })();
   </script>
