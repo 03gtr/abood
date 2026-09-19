@@ -22,34 +22,16 @@
       --font-sf-pro-display: 'SF Pro Display', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --font-sf-pro-text: 'SF Pro Text', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --text-caption: 12px;
-      --leading-caption: 1.33;
-      --tracking-caption: -0.264px;
       --text-body-sm: 14px;
-      --leading-body-sm: 1.29;
-      --tracking-body-sm: -0.224px;
       --text-body: 17px;
-      --leading-body: 1.47;
-      --tracking-body: -0.272px;
       --text-subheading: 21px;
-      --leading-subheading: 1.24;
-      --tracking-subheading: -0.105px;
       --text-heading-sm: 28px;
-      --leading-heading-sm: 1.18;
-      --tracking-heading-sm: 0.196px;
       --text-heading: 40px;
-      --leading-heading: 1.14;
-      --tracking-heading: 0.44px;
       --text-heading-lg: 44px;
-      --leading-heading-lg: 1.18;
-      --tracking-heading-lg: -0.44px;
       --text-display: 56px;
-      --leading-display: 1.07;
-      --tracking-display: 0.616px;
       --font-weight-light: 300;
       --font-weight-regular: 400;
       --font-weight-semibold: 600;
-      --font-weight-bold: 700;
-      --spacing-unit: 4px;
       --spacing-4: 4px;
       --spacing-8: 8px;
       --spacing-12: 12px;
@@ -58,50 +40,58 @@
       --spacing-24: 24px;
       --spacing-40: 40px;
       --spacing-48: 48px;
-      --spacing-56: 56px;
-      --page-max-width: 1440px;
-      --section-gap: 64px;
-      --card-padding: 24px;
-      --element-gap: 12px;
       --radius-lg: 8px;
-      --radius-lg-2: 11px;
       --radius-full: 980px;
-      --radius-full-2: 999px;
-      --radius-tags: 980px;
-      --radius-cards: 8px;
-      --radius-images: 8px;
-      --radius-inputs: 8px;
-      --radius-buttons: 980px;
-      --shadow-xl: rgba(0, 0, 0, 0.22) 3px 5px 30px 0px;
-      --surface-canvas: #f5f5f7;
-      --surface-elevated-wash: #f4f8fb;
-      --surface-pebble: #e2e2e5;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
       font-family: var(--font-sf-pro-text);
       font-size: var(--text-body);
-      line-height: var(--leading-body);
-      letter-spacing: var(--tracking-body);
+      line-height: 1.47;
+      letter-spacing: -0.016em;
       color: var(--color-carbon);
-      background-color: var(--color-frost);
+      background: #ffffff;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-rendering: optimizeLegibility;
       min-height: 100vh;
       overflow-x: hidden;
     }
+
+    /* ── Animations ── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .animate { animation-fill-mode: both; }
+    .animate--fade-up { animation-name: fadeInUp; }
+    .animate--fade { animation-name: fadeIn; }
+    .animate--scale { animation-name: scaleIn; }
+    .duration--400 { animation-duration: 0.4s; }
+    .duration--600 { animation-duration: 0.6s; }
+    .duration--800 { animation-duration: 0.8s; }
+    .delay--100 { animation-delay: 0.1s; }
+    .delay--200 { animation-delay: 0.2s; }
+    .delay--300 { animation-delay: 0.3s; }
+    .delay--400 { animation-delay: 0.4s; }
+    .ease--out { animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
 
     /* ── Sticky Top Bar ── */
     .topbar {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(245, 245, 247, 0.85);
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: saturate(180%) blur(20px);
       -webkit-backdrop-filter: saturate(180%) blur(20px);
       border-bottom: 1px solid var(--color-pebble);
@@ -109,24 +99,20 @@
     .topbar__inner {
       max-width: 980px;
       margin: 0 auto;
-      padding: 8px 24px;
+      padding: 10px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
     .topbar__name {
-      font-family: var(--font-sf-pro-text);
       font-size: var(--text-body-sm);
       font-weight: var(--font-weight-semibold);
       color: var(--color-carbon);
-      letter-spacing: var(--tracking-body-sm);
     }
     .topbar__label {
-      font-family: var(--font-sf-pro-text);
       font-size: var(--text-caption);
-      font-weight: var(--font-weight-regular);
       color: var(--color-ash);
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
     }
 
@@ -142,51 +128,45 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 80px 24px 64px;
+      padding: 72px 24px 56px;
       text-align: center;
     }
     .hero__eyebrow {
-      font-family: var(--font-sf-pro-text);
       font-size: var(--text-caption);
-      font-weight: var(--font-weight-regular);
       color: var(--color-ash);
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
     .hero__avatar {
-      width: 120px;
-      height: 120px;
+      width: 128px;
+      height: 128px;
       border-radius: 50%;
-      background: var(--color-pebble);
-      border: 1px solid var(--color-mist);
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       overflow: hidden;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      background: var(--color-pebble);
     }
-    .hero__avatar svg {
-      width: 48px;
-      height: 48px;
-      color: var(--color-ash);
+    .hero__avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .hero__name {
       font-family: var(--font-sf-pro-display);
-      font-size: clamp(36px, 6vw, var(--text-display));
+      font-size: clamp(36px, 6vw, 52px);
       font-weight: var(--font-weight-semibold);
-      line-height: var(--leading-display);
-      letter-spacing: var(--tracking-display);
+      line-height: 1.07;
+      letter-spacing: 0.011em;
       color: var(--color-carbon);
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
     .hero__descriptor {
-      font-family: var(--font-sf-pro-text);
       font-size: var(--text-subheading);
       font-weight: var(--font-weight-light);
-      line-height: var(--leading-subheading);
       color: var(--color-ash);
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
     .hero__cta {
       display: inline-flex;
@@ -194,18 +174,25 @@
       gap: 8px;
       background: var(--color-apple-blue);
       color: #ffffff;
-      font-family: var(--font-sf-pro-text);
       font-size: var(--text-body);
       font-weight: var(--font-weight-regular);
-      padding: 11px 24px;
+      padding: 12px 28px;
       border-radius: var(--radius-full);
       border: none;
       cursor: pointer;
       text-decoration: none;
-      transition: background 0.2s ease;
+      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 2px 8px rgba(0, 113, 227, 0.25);
     }
-    .hero__cta:hover { background: #0077ed; }
-    .hero__cta:active { background: #006edb; }
+    .hero__cta:hover {
+      background: #0077ed;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
+    }
+    .hero__cta:active {
+      background: #006edb;
+      transform: translateY(0);
+    }
     .hero__cta svg { width: 20px; height: 20px; }
 
     /* ── Divider ── */
@@ -217,28 +204,26 @@
 
     /* ── Social Links Section ── */
     .social {
-      padding: 48px 0;
+      padding: 40px 0;
     }
     .social__heading {
-      font-family: var(--font-sf-pro-text);
       font-size: var(--text-body-sm);
       font-weight: var(--font-weight-semibold);
       color: var(--color-ash);
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
       text-align: center;
     }
     .social__list {
       display: flex;
       flex-direction: column;
-      gap: 0;
     }
     .social__item {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 16px 0;
+      padding: 14px 0;
       border-bottom: 1px solid var(--color-pebble);
       text-decoration: none;
       color: var(--color-carbon);
@@ -250,42 +235,41 @@
     .social__info {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
     }
     .social__icon {
-      width: 40px;
-      height: 40px;
-      border-radius: var(--radius-cards);
-      background: var(--color-pebble);
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: var(--color-frost);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
-    .social__icon svg { width: 20px; height: 20px; color: var(--color-graphite); }
+    .social__icon svg { width: 18px; height: 18px; color: var(--color-graphite); }
     .social__text {
       display: flex;
       flex-direction: column;
     }
     .social__name {
-      font-family: var(--font-sf-pro-text);
       font-size: var(--text-body);
       font-weight: var(--font-weight-regular);
-      color: var(--color-carbon);
     }
     .social__handle {
-      font-family: var(--font-sf-pro-text);
       font-size: var(--text-body-sm);
       color: var(--color-ash);
     }
     .social__arrow {
       color: var(--color-mist);
-      font-size: 18px;
+      font-size: 16px;
+      transition: transform 0.15s ease;
     }
+    .social__item:hover .social__arrow { transform: translateX(-2px); }
 
     /* ── Save Contact Section ── */
     .save {
-      padding: 48px 0 64px;
+      padding: 40px 0 56px;
       display: flex;
       justify-content: center;
     }
@@ -295,15 +279,14 @@
       gap: 8px;
       background: transparent;
       color: var(--color-link-blue);
-      font-family: var(--font-sf-pro-text);
       font-size: var(--text-body);
       font-weight: var(--font-weight-regular);
-      padding: 11px 24px;
+      padding: 12px 28px;
       border-radius: var(--radius-full);
       border: 1px solid var(--color-link-blue);
       cursor: pointer;
       text-decoration: none;
-      transition: background 0.2s ease, color 0.2s ease;
+      transition: background 0.15s ease, color 0.15s ease;
     }
     .save__btn:hover {
       background: var(--color-link-blue);
@@ -313,23 +296,21 @@
 
     /* ── Footer ── */
     .footer {
-      padding: 32px 24px 48px;
+      padding: 24px 24px 40px;
       text-align: center;
       border-top: 1px solid var(--color-pebble);
     }
     .footer__text {
-      font-family: var(--font-sf-pro-text);
       font-size: var(--text-caption);
       color: var(--color-ash);
-      letter-spacing: var(--tracking-caption);
     }
 
     /* ── Responsive ── */
     @media (max-width: 640px) {
-      .hero { padding: 56px 16px 48px; }
-      .hero__avatar { width: 96px; height: 96px; }
+      .hero { padding: 48px 16px 40px; }
+      .hero__avatar { width: 104px; height: 104px; }
       main { padding: 0 16px; }
-      .topbar__inner { padding: 8px 16px; }
+      .topbar__inner { padding: 10px 16px; }
     }
 
     /* ── Reduced Motion ── */
@@ -356,16 +337,13 @@
 
     <!-- Hero -->
     <section class="hero" aria-labelledby="hero-name">
-      <p class="hero__eyebrow">Digital Profile</p>
-      <div class="hero__avatar" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="8" r="4"/>
-          <path d="M4 20c0-4 4-7 8-7s8 3 8 7"/>
-        </svg>
+      <p class="hero__eyebrow animate animate--fade duration--400 ease--out">Digital Profile</p>
+      <div class="hero__avatar animate animate--scale duration--600 ease--out delay--100">
+        <img src="photo.jpg" alt="عبدالله الحنكاوي" width="128" height="128" loading="eager" />
       </div>
-      <h1 class="hero__name" id="hero-name">عبدالله الحنكاوي</h1>
-      <p class="hero__descriptor">تواصل مباشر وسريع</p>
-      <a class="hero__cta" href="https://wa.me/9647708865247" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب">
+      <h1 class="hero__name animate animate--fade-up duration--600 ease--out delay--200" id="hero-name">عبدالله الحنكاوي</h1>
+      <p class="hero__descriptor animate animate--fade-up duration--600 ease--out delay--300">تواصل مباشر وسريع</p>
+      <a class="hero__cta animate animate--fade-up duration--600 ease--out delay--400" href="https://wa.me/9647708865247" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
@@ -377,10 +355,10 @@
 
     <!-- Social Links -->
     <section class="social" aria-labelledby="social-heading">
-      <h2 class="social__heading" id="social-heading">روابط التواصل</h2>
+      <h2 class="social__heading animate animate--fade duration--400 ease--out" id="social-heading">روابط التواصل</h2>
       <nav class="social__list" aria-label="روابط التواصل الاجتماعي">
 
-        <a class="social__item" href="https://www.instagram.com/28.gtr" target="_blank" rel="noopener">
+        <a class="social__item animate animate--fade-up duration--400 ease--out delay--100" href="https://www.instagram.com/28.gtr" target="_blank" rel="noopener">
           <div class="social__info">
             <div class="social__icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -397,7 +375,7 @@
           <span class="social__arrow" aria-hidden="true">→</span>
         </a>
 
-        <a class="social__item" href="https://www.tiktok.com/@ky.ha.2" target="_blank" rel="noopener">
+        <a class="social__item animate animate--fade-up duration--400 ease--out delay--200" href="https://www.tiktok.com/@ky.ha.2" target="_blank" rel="noopener">
           <div class="social__info">
             <div class="social__icon">
               <svg viewBox="0 0 24 24" fill="currentColor">
@@ -412,7 +390,7 @@
           <span class="social__arrow" aria-hidden="true">→</span>
         </a>
 
-        <a class="social__item" href="https://www.snapchat.com/add/gtr.288" target="_blank" rel="noopener">
+        <a class="social__item animate animate--fade-up duration--400 ease--out delay--300" href="https://www.snapchat.com/add/gtr.288" target="_blank" rel="noopener">
           <div class="social__info">
             <div class="social__icon">
               <svg viewBox="0 0 24 24" fill="currentColor">
@@ -427,7 +405,7 @@
           <span class="social__arrow" aria-hidden="true">→</span>
         </a>
 
-        <a class="social__item" href="https://www.facebook.com/share/18SiGY9y9p/" target="_blank" rel="noopener">
+        <a class="social__item animate animate--fade-up duration--400 ease--out delay--400" href="https://www.facebook.com/share/18SiGY9y9p/" target="_blank" rel="noopener">
           <div class="social__info">
             <div class="social__icon">
               <svg viewBox="0 0 24 24" fill="currentColor">
@@ -448,7 +426,7 @@
     <hr class="divider" />
 
     <!-- Save Contact -->
-    <section class="save" aria-label="حفظ جهة الاتصال">
+    <section class="save animate animate--fade-up duration--600 ease--out delay--400" aria-label="حفظ جهة الاتصال">
       <button class="save__btn" id="saveContact" type="button">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="18" height="18" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
